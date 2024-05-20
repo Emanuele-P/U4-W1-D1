@@ -8,13 +8,18 @@ public class ex1 {
         String result2 = stringAndNumber("this is a text", 7);
         System.out.println("1.2 result: " + result2);
 
-        String[] result3 = {"1", "2", "3", "4", "5"};
-        result3 = newStringArray(result3, "6");
+        String[] array = {"1", "2", "3", "4", "5"};
+        String[] newArray = Arrays.copyOf(array, array.length +1);
+        newArray[array.length] = "6";
 
-        for (int i=0; i < result3.length; i++) {
-            System.out.println("1.3 result: " + result3[i]);
+        for (int i = newArray.length - 1; i > 2; i --) {
+            newArray[i] = newArray[i-1];
         }
+        newArray[3] = "6";
 
+        for (int i=0; i < newArray.length; i++) {
+            System.out.println("1.3 result: " + newArray[i]);
+        }
         }
 
 
@@ -24,9 +29,4 @@ public class ex1 {
         public static String stringAndNumber(String str, int num) {
             return str + " " + num;
         }
-        public static String[] newStringArray(String[] array, String newStr) {
-                String[] newArray = Arrays.copyOf(array, array.length + 1);
-                newArray[array.length] = newStr;
-                return newArray;
-    }
 }
