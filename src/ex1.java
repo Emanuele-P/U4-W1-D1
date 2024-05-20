@@ -8,12 +8,9 @@ public class ex1 {
         String result2 = stringAndNumber("this is a text", 7);
         System.out.println("1.2 result: " + result2);
 
-        String[] array = {"1", "2", "3", "4", "5"};
-        String[] newArray = modifyArray(array);
+        String[] arr = insertIntoArray(new String[]{"1", "2", "3", "4", "5"}, "6");
 
-        for (int i = 0; i < newArray.length; i++) {
-            System.out.println("1.3 result: " + newArray[i]);
-        }
+        System.out.println(Arrays.toString(arr));
         }
 
 
@@ -23,15 +20,18 @@ public class ex1 {
         public static String stringAndNumber(String str, int num) {
             return str + " " + num;
         }
-    public static String[] modifyArray(String[] array) {
-        String[] newArray = Arrays.copyOf(array, array.length + 1);
-        newArray[array.length] = "6";
-
-        for (int i = newArray.length - 1; i > 2; i--) {
-            newArray[i] = newArray[i - 1];
+    public static String[] insertIntoArray(String[] stringArray, String str) {
+        String[] array = new String[6];
+        for (int i = 0; i < stringArray.length +1 ; i++) {
+            if(i < 2) {
+                array[i] = stringArray[i];
+            } else if(i == 2) {
+                array[i] = str;
+            } else {
+                array[i] = stringArray[i - 1];
+            }
         }
-        newArray[2] = "6";
 
-        return newArray;
+        return array;
     }
 }

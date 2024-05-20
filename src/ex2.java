@@ -3,20 +3,22 @@ import java.util.Scanner;
 public class ex2 {
     public static void main(String[] args) {
 
-        Scanner sc = createScanner();
+        Scanner scan = new Scanner(System.in);
+        String[] userInput = new String[3];
 
-        System.out.println("Write three words:");
-        String first = sc.nextLine();
-        String second = sc.nextLine();
-        String third = sc.nextLine();
+        System.out.println("Write the first word:");
+        userInput[0] = scan.nextLine();
+        System.out.println("Write the second word:");
+        userInput[1] = scan.nextLine();
+        System.out.println("Write the third word:");
+        userInput[2] = scan.nextLine();
 
-        System.out.println(first + " " + second + " " + third);
-        System.out.println(third + " " + second + " " + first);
-
-        sc.close();
+        words(userInput);
+        scan.close();
     }
 
-    public static Scanner createScanner() {
-        return new Scanner(System.in);
+    public static void words(String[] userInput) {
+        System.out.println(userInput[0] + " " + userInput[1] + " " + userInput[2] + " " +
+                userInput[2] + " " + userInput[1] + " " + userInput[0]);
     }
 }
